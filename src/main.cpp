@@ -1,5 +1,4 @@
 //main.cpp
-#include "drivers/include/drivers/BufferedSerial.h"
 #include "mbed.h"
 #include "Servo.hpp"
 
@@ -10,8 +9,7 @@ BufferedSerial serial(USBTX, USBRX, 115200);
 
 int main()
 {
-ServoController servoController(can1);
-servoController.servo_can_id = 141;
+ServoController servoController(can1,141);
 
 while (1) {
     char data;
@@ -26,7 +24,7 @@ while (1) {
         deg = 255;
     }
 
-    servoController.run(deg,3);
+    servoController.run(deg,0);
 }
 
 

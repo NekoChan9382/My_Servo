@@ -7,13 +7,14 @@ extern uint8_t servo1_data[8];
 
 class ServoController {
 public:
-  ServoController(CAN& can);
-  uint32_t servo_can_id;
+  ServoController(CAN& can, uint32_t canid);
+  
 
   void run(uint8_t deg, uint8_t motor);
 
 private:
   CAN& can;
+  uint32_t servo_can_id;
 
   uint8_t servo1_data[8] = {0}; // サーボ制御用データの初期化
 };
